@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "blade-toc-sbx",  
+  schema: "source_sample_dataset",
+  name: "transaction_items",
+  description: "Transactional data for items"
+}
