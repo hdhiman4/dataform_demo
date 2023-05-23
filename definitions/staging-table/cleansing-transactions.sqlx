@@ -1,6 +1,6 @@
 config {
   type: "table",
-  schema: "staging",
+  schema: "dataform_staging",
   description: "Cleaned up data corresponding to transaction_items",
 }
 with r as (
