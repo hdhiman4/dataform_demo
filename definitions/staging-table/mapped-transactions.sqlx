@@ -5,14 +5,14 @@ config {
 }
 
 select 
-  transaction_id,transaction_code,
-  tx.prod_id,tx.prod_code,prod_dim.prod_name,
-  tx.store_id,tx.store_code,store_name,
-  store_state,store_country,
-  tx.total_amount
+    transaction_id,transaction_code,
+    tx.prod_id,tx.prod_code,prod_dim.prod_name,
+    tx.store_id,tx.store_code,store_name,
+    store_state,store_country,
+    tx.total_amount
 from ${ref("cleansing-transactions")} tx
 left join ${ref("products")} prod_dim
-  on tx.prod_id=prod_dim.prod_id
+    on tx.prod_id=prod_dim.prod_id
 left join ${ref("stores")} store_dim
-  on tx.store_code=store_dim.store_code
+    on tx.store_code=store_dim.store_code
 

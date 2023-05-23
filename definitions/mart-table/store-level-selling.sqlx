@@ -5,7 +5,7 @@ config {
 }
 
 select 
-  tx.store_code,sum(tx.total_amount) as agg_amount_store_level
+    tx.store_code,sum(tx.total_amount) as agg_amount_store_level
 from ${ref("mapped-transactions")} tx
 group by tx.store_code
 order by tx.store_code
