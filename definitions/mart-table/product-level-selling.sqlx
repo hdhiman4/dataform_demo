@@ -6,6 +6,6 @@ config {
 
 select 
     tx.prod_code,sum(total_amount) as agg_amount_prod_level
-from ${ref("mapped-transactions")} tx
+from ${ref("staging-transactions")} tx
 group by tx.prod_code
 order by tx.prod_code
