@@ -10,7 +10,12 @@ select transaction_id,transaction_code,prod_id,prod_code,store_id,store_code,
     (partition by transaction_id,transaction_code,prod_id,prod_code,store_id,store_code 
     order by transaction_id,transaction_code,prod_id,prod_code,store_id,store_code
     ) as rn 
-    from  ${ref("transaction_items")})
-select transaction_id,transaction_code,prod_id,prod_code,store_id,store_code,
-    qty*price as total_amount from r where rn=1
+from  ${ref("transaction_items")})
+select 
+    transaction_id,transaction_code,
+    prod_id,prod_code,
+    store_id,store_code,
+    qty*price as total_amount 
+from r 
+    where rn=1
 
